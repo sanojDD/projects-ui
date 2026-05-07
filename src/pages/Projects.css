@@ -1,0 +1,328 @@
+/* Container fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page Title with gradient effect */
+.page-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: clamp(40px, 8vw, 60px);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent, #6366f1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Project Grid - Responsive layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(24px, 4vw, 40px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive grid adjustments */
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    padding: 0 16px;
+  }
+}
+
+/* Project Card - Enhanced glass morphism */
+.project-card {
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: clamp(28px, 5vw, 40px);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Shine effect on hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+/* Gradient background overlay on hover */
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(139, 92, 246, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+/* Icon Wrapper */
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.15),
+    rgba(139, 92, 246, 0.05)
+  );
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+  color: var(--accent, #6366f1);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .icon-wrapper {
+  transform: scale(1.05) rotate(5deg);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.25),
+    rgba(139, 92, 246, 0.1)
+  );
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.project-card:hover .icon-wrapper svg {
+  transform: scale(1.1);
+  color: #818cf8;
+}
+
+/* Card Title */
+.project-card h3 {
+  font-size: clamp(1.35rem, 4vw, 1.6rem);
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.project-card:hover h3 {
+  color: var(--accent, #6366f1);
+  transform: translateX(4px);
+}
+
+/* Card Description */
+.project-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Optional: Add a subtle glow on card hover */
+@keyframes borderPulse {
+  0% {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 2px rgba(99, 102, 241, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.project-card:hover {
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
+/* Staggered animations for cards */
+.project-card {
+  animation: cardFadeIn 0.6s ease-out backwards;
+}
+
+.project-card:first-child {
+  animation-delay: 0.1s;
+}
+
+.project-card:last-child {
+  animation-delay: 0.2s;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile touch optimizations */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 28px;
+  }
+
+  .project-card:active {
+    transform: scale(0.98);
+  }
+
+  .icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  .icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Focus styles for accessibility */
+.project-card:focus-visible {
+  outline: 2px solid var(--accent, #6366f1);
+  outline-offset: 2px;
+  transform: translateY(-4px);
+}
+
+/* Optional: Add a custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Loading state skeleton (optional) */
+.project-card.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 15, 20, 0.6) 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(15, 15, 20, 0.6) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
