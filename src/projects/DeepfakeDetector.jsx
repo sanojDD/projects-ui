@@ -9,7 +9,7 @@ const DeepfakeDetector = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const API_URL = "https://deepfake-detector-67g8.onrender.com/predict";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -28,7 +28,7 @@ const DeepfakeDetector = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post(API_URL, formData, {
+      const response = await axios.post(`${API_URL}/predict`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResult(response.data);

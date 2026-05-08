@@ -1,5 +1,6 @@
+// export default Projects;
 import { Link } from "react-router-dom";
-import { Shield } from "lucide-react";
+import { Shield, Smartphone } from "lucide-react";
 import "./Projects.css";
 
 const Projects = () => {
@@ -10,6 +11,13 @@ const Projects = () => {
       desc: "Detect AI-generated faces with 99.8% accuracy.",
       icon: <Shield />,
       path: "/deepfake",
+    },
+    {
+      id: "mobile-price",
+      title: "Mobile Price Predictor",
+      desc: "Predict smartphone prices based on specifications and features.",
+      icon: <Smartphone />,
+      path: "/mobile-price",
     },
   ];
 

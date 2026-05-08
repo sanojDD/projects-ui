@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Projects from "./pages/Projects";
 import DeepfakeDetector from "./projects/DeepfakeDetector";
+import MobilePricePredictor from "./projects/MobilePricePredictor";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Projects />} />
           <Route path="/deepfake" element={<DeepfakeDetector />} />
+          <Route path="/mobile-price" element={<MobilePricePredictor />} />
           <Route
             path="/about"
             element={
