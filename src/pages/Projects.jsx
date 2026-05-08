@@ -1,6 +1,5 @@
-// export default Projects;
 import { Link } from "react-router-dom";
-import { Shield, Smartphone } from "lucide-react";
+import { Shield, Smartphone, Camera } from "lucide-react"; // Added Camera icon
 import "./Projects.css";
 
 const Projects = () => {
@@ -8,16 +7,23 @@ const Projects = () => {
     {
       id: "deepfake",
       title: "Deepfake Detector",
-      desc: "Detect AI-generated faces with 99.8% accuracy.",
+      desc: "Detect AI-generated faces with 99.8% accuracy using deep learning.",
       icon: <Shield />,
       path: "/deepfake",
     },
     {
       id: "mobile-price",
       title: "Mobile Price Predictor",
-      desc: "Predict smartphone prices based on specifications and features.",
+      desc: "ML-powered tool to estimate smartphone market prices in Nepal.",
       icon: <Smartphone />,
       path: "/mobile-price",
+    },
+    {
+      id: "posenet",
+      title: "PoseNet Tracking",
+      desc: "Real-time human pose estimation using ml5.js and computer vision.",
+      icon: <Camera />,
+      path: "/projects/posenet", // Matches the route we set up
     },
   ];
 

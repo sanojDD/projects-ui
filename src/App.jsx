@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./pages/Projects";
 import DeepfakeDetector from "./projects/DeepfakeDetector";
 import MobilePricePredictor from "./projects/MobilePricePredictor";
+import PoseNetProject from "./projects/PoseNetProject";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Projects />} />
           <Route path="/deepfake" element={<DeepfakeDetector />} />
           <Route path="/mobile-price" element={<MobilePricePredictor />} />
+          <Route path="/projects/posenet" element={<PoseNetProject />} />
           <Route
             path="/about"
             element={
